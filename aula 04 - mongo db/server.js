@@ -6,6 +6,9 @@ const Book = require("./models/book");
 const Loan = require("./models/loan");
 const validateTitle = require("./middlewares/validateTitle");
 
+const bookRoutes = require('./routes/bookRoutes');
+app.use('/api', bookRoutes);
+
 connectDB();
 app.use(express.json());
 
@@ -16,16 +19,16 @@ app.use((err, req, res, next) => {
 
 app.listen(3000, () => console.log("Server running on port 3000"));
 
-app.get("/api/books", async (_req, res) => {
+/*app.get("/api/books", async (_req, res) => {
  try {
    const books = await Book.find();
    res.json(books);
  } catch (err) {
    res.status(500).json({ error: "Erro ao buscar livros" });
  }
-});
+});*/
 
-app.post("/api/books", validateTitle, async (req, res) => {
+/*app.post("/api/books", validateTitle, async (req, res) => {
  try {
    const { title, author, year, genre } = req.body;
    const newBook = new Book({ title, author, year, genre });
@@ -34,9 +37,9 @@ app.post("/api/books", validateTitle, async (req, res) => {
  } catch (err) {
    res.status(500).json({ error: "Erro ao criar livro." });
  }
-});
+});*/
 
-app.get("/api/books/:id", async (req, res) => {
+/*app.get("/api/books/:id", async (req, res) => {
  try {
    const { id } = req.params;
    const book = await Book.findById(id);
@@ -51,7 +54,7 @@ app.get("/api/books/:id", async (req, res) => {
  } catch (err) {
    res.status(500).json({ error: "Erro ao buscar livro" });
  }
-});
+});*/
 
 app.post("/api/loans", async (req, res) => {
 try {
