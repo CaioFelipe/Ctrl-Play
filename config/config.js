@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const connectDB = async () => {
  try {
-   await mongoose.connect('mongodb://localhost:27017/minhaLivrariaDB');
+   await mongoose.connect('mongodb+srv://admin:admin@ctrlplay.a1pe721.mongodb.net/?appName=ctrlplay');
    console.log('MongoDB conectado!');
  } catch (err) {
    console.error('Erro ao conectar ao MongoDB:', err);
